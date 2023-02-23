@@ -1,12 +1,12 @@
 header{
-    height: 20vh;
+    height: 50vh;
 }
 main{
-    height: 60vh;
+    height: 40vh;
     background-color: rgb(21, 63, 141);
 }
 footer{
-    height: 20vh;
+    height: 10vh;
 }
 #logonav{
     width: 100px;
