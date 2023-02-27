@@ -1,13 +1,17 @@
-/* header{
+header{
     height: 30vh;
+    /* background-color: aqua; */
+}
+nav{
+    min-height: 5vh;
 }
 main{
-    height: 65vh;
-    background-color: rgb(21, 63, 141);
+    min-height: 90vh;
+    /* background-color: rgb(21, 63, 141);*/
 }
 footer{
-    height: 5vh;
-} */
+    min-height: 5vh;
+}
 #logonav{
     width: 100px;
 }
