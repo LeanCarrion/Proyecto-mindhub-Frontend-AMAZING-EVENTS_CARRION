@@ -13,38 +13,59 @@
 </head>
 
 <body>
-    <header class="container justify-content-center">
-        <div class="d-flex row justify-content-center">
-            <nav class="navbar navbar-expand-lg bg-body-tertiary row">
-                <div class="col ms-5 ">
-                    <img id="logonav" src="./assets/logo_amazing_avents.png" alt="logo">
+    <header class=" container-fluid bg-info-subtle ">
+        <div class="container justify-content-center">
+                            
+                        <!-- navbar -->
+            <div class="container justify-content-center">
+                <nav class="navbar navbar-expand-md ">
+                    <div class="container-fluid">
+                        <!-- icono -->
+                        <a class="navbar-brand" href="#"></a>
+                        <img id="logonav" src="./assets/logo_amazing_avents.png" alt="logo">
 
-                </div>
-                <div class="container-fluid col justify-content-end">
-
-                    <ul class="nav nav-pills">
-                        <li class="nav-item">
-                            <a class="nav-link" href="./index.html">home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./upcoming_events.html">Upcoming Events</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Past Events</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./contact.html">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./stats.html">Stats</a>
-                        </li>
+                        <!-- botones menu -->
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
 
 
-                    </ul>
-                </div>
+                        <!-- elementos del menu colapsable -->
+                        <div class=" collapse navbar-collapse" id="menu">
+                            <ul class="nav nav-pills ms-auto">
+                                <ul class="nav nav-pills">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./index.html">home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./upcoming_events.html">Upcoming Events</a>
+                                    </li>
 
-            </nav>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" aria-current="page" href="#">Past Events</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./contact.html">Contact</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./stats.html">Stats</a>
+                                    </li>
+
+
+                                </ul>
+
+
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </nav>
+            </div>
+
         </div>
         <div id="carouselExampleCaptions"
             class="carousel slide carousel-fade d-flex row bg-info-subtle  justify-content-center">
@@ -139,7 +160,7 @@
                 </div>
             </div>
             <div id="card" class=" justify-content-center row mt-5"></div>
-           
+
         </div>
     </main>
     <footer class="container-fluid mt-2 bg-secondary">
@@ -164,13 +185,16 @@
 
 
             <ul class="nav col-md-4  list-unstyled d-flex mt-3">
-                <li class="ms-3"><a class="text-muted" href="https://www.whatsapp.com/?lang=es"><svg class="bi" width="24" height="24">
+                <li class="ms-3"><a class="text-muted" href="https://www.whatsapp.com/?lang=es"><svg class="bi"
+                            width="24" height="24">
                             <use xlink:href="#whatsapp" />
                         </svg></a></li>
-                <li class="ms-3"><a class="text-muted" href="https://www.instagram.com/"><svg class="bi" width="24" height="24">
+                <li class="ms-3"><a class="text-muted" href="https://www.instagram.com/"><svg class="bi" width="24"
+                            height="24">
                             <use xlink:href="#instagram" />
                         </svg></a></li>
-                <li class="ms-3"><a class="text-muted" href="https://www.facebook.com/"><svg class="bi" width="24" height="24">
+                <li class="ms-3"><a class="text-muted" href="https://www.facebook.com/"><svg class="bi" width="24"
+                            height="24">
                             <use xlink:href="#facebook" />
                         </svg></a></li>
             </ul>

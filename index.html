@@ -15,15 +15,23 @@
 <body>
     <header class=" container-fluid bg-info-subtle ">
         <div class="container justify-content-center">
-            <div class="d-flex row justify-content-center">
-                <nav class="navbar navbar-expand-lg bg-info-subtle row">
-                    <div class="col ms-5 ">
-                        <img id="logonav" src="./assets/logo_amazing_avents.png" alt="logo">
 
-                    </div>
-                    <div class="container-fluid col justify-content-end">
+            <nav class="navbar navbar-expand-md ">
+                <div class="container-fluid">
+                    <!-- icono -->
+                    <a class="navbar-brand" href="#"></a>
+                    <img id="logonav" src="./assets/logo_amazing_avents.png" alt="logo">
 
-                        <ul class="nav nav-pills">
+                    <!-- botones menu -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+
+                    <!-- elementos del menu colapsable -->
+                    <div class=" collapse navbar-collapse" id="menu">
+                        <ul class="nav nav-pills ms-auto">
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="#">home</a>
                             </li>
@@ -42,11 +50,12 @@
 
 
                         </ul>
+
                     </div>
 
-                </nav>
-            </div>
+                </div>
 
+            </nav>
             <div id="carouselExampleCaptions"
                 class="carousel slide carousel-fade d-flex row bg-info-subtle  justify-content-center">
 
@@ -131,8 +140,8 @@
 
 
                 <div class="col-1 col-lg-2  col-sm-12 d-flex  ">
-                    <div class="row ">
-                        <input class="form-control  col d-flex m-1" type="search" placeholder="Search"
+                    <div class="row me-auto">
+                        <input class="form-control  col d-flex m-1 " type="search" placeholder="Search"
                             aria-label="Search">
                         <button class="btn btn-outline-success d-flex col-2 m-1 justify-content-center"
                             type="submit">🔍︎</button>
@@ -166,13 +175,16 @@
 
 
             <ul class="nav col-md-4  list-unstyled d-flex mt-3">
-                <li class="ms-3"><a class="text-muted" href="https://www.whatsapp.com/?lang=es"><svg class="bi" width="24" height="24">
+                <li class="ms-3"><a class="text-muted" href="https://www.whatsapp.com/?lang=es"><svg class="bi"
+                            width="24" height="24">
                             <use xlink:href="#whatsapp" />
                         </svg></a></li>
-                <li class="ms-3"><a class="text-muted" href="https://www.instagram.com/"><svg class="bi" width="24" height="24">
+                <li class="ms-3"><a class="text-muted" href="https://www.instagram.com/"><svg class="bi" width="24"
+                            height="24">
                             <use xlink:href="#instagram" />
                         </svg></a></li>
-                <li class="ms-3"><a class="text-muted" href="https://www.facebook.com/"><svg class="bi" width="24" height="24">
+                <li class="ms-3"><a class="text-muted" href="https://www.facebook.com/"><svg class="bi" width="24"
+                            height="24">
                             <use xlink:href="#facebook" />
                         </svg></a></li>
             </ul>
