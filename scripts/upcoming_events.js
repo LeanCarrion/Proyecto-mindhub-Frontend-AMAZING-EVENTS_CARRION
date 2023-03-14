@@ -8,18 +8,14 @@ function mostrarCard (array,contenedor){
     
 for (dato of array) {
     if(data.currentDate<dato.date){
-        tarjetas += `<div class="card m-3 mx-5" style="width: 14rem;">
-                    <img src="${dato.image}" class="card-img-top mt-2 h-100" alt="">
-                    <div class="card-body">
+        tarjetas += `<div class="card m-3 mx-5" style="width: 18rem;">
+                        <img src="${dato.image}" class="card-img-top" alt="">
+                        <div class="card-body">
                         <h5 class="card-title">${dato.name}</h5>
                         <p class="card-text">${dato.description}</p>
-                    </div>
-
-                    <div class="card-body row d-flex">
-                        <p class="card-link d-flex col row">$${dato.price}</p>
-                        <button type="button" class="btn btn-primary card-link col row">See more</button>
-                    </div>
-                 </div>`
+                        <a href="../details.html" class="btn btn-primary">detail</a>
+                        </div>
+                    </div>`
 
     }
 }
