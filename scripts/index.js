@@ -28,11 +28,15 @@ function mostrarCard(array, contenedor) {
     tarjetas += `<div class="card m-3 mx-5" style="width: 18rem;">
                                     <img src="${dato.image}" class="card-img-top" alt="">
                                     <div class="card-body">
-                                    <h5 class="card-title">${dato.name}</h5>
-                                    <p class="card-text">${dato.description}</p>
-                                    <a href="../details.html" class="btn btn-primary">detail</a>
+                                        <h5 class="card-title">${dato.name}</h5>
+                                        <p class="card-text">${dato.description}</p>
+                                        <div class="row">
+                                            <p class="col">$${dato.price}</p>
+                                            <a href="../details.html" class="col btn btn-primary">detail</a>
+                                        </div>
+                                    
                                     </div>
-                                </div>`;
+                    </div>`;
   }
 
   contenedor.innerHTML = tarjetas;
