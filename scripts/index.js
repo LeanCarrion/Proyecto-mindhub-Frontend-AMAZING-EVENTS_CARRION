@@ -1,51 +1,11 @@
-
+// constante
 
 const contenedorCard = document.getElementById('card')
+const input = document.getElementById('inputsearch')
 const contenedorCheckbox = document.getElementById('checkcontainer')
 
 
-function mostrarCard (array,contenedor){
-    if(array.length == 0 ){
-        contenedor.innerHTML = "<h2>no matches!</h2>"
-        return
-    }
-    let tarjetas = ''
-    for (dato of array) {
-            tarjetas += `<div class="card m-3 mx-5" style="width: 18rem;">
-                    <img src="${dato.image}" class="card-img-top" alt="">
-                    <div class="card-body">
-                    <h5 class="card-title">${dato.name}</h5>
-                    <p class="card-text">${dato.description}</p>
-                    <a href="../details.html" class="btn btn-primary">detail</a>
-                    </div>
-                </div>`
-                 
-}
-
-contenedor.innerHTML = tarjetas
-}
-
-
-
-// filtros
-
-// constante
-
-const input = document.getElementById('inputsearch')
-
 //eventos
-
-// input.addEventListener('input',()=>{
-//     let arrayFiltrado1 = filtrarPorTexto(data.events, input.value)
-//     let arrayFiltrado2 = filtrarPorCategoria(arrayFiltrado1)
-//     mostrarCard(arrayFiltrado2,contenedorCard)
-// })
-
-// contenedorCheckbox,addEventListener('change',() =>{
-//     let arrayFiltrado1 = filtrarPorTexto(data.events, input.value)
-//     let arrayFiltrado2 = filtrarPorCategoria(arrayFiltrado1)
-//     mostrarCard(arrayFiltrado2,contenedorCard)
-// })
 
 input.addEventListener('input',filtroDoble)
 
@@ -56,11 +16,38 @@ contenedorCheckbox,addEventListener('change',filtroDoble)
 
 //llamadas de funciones
 
+
+
 mostrarCard(data.events,contenedorCard)
 
 crearcheckbox(data.events)
 
-//funciones
+
+
+                //funciones
+
+function mostrarCard (array,contenedor){
+                    if(array.length == 0 ){
+                        contenedor.innerHTML = "<h2>no matches!</h2>"
+                        return
+                    }
+                    let tarjetas = ''
+                    for (dato of array) {
+                            tarjetas += `<div class="card m-3 mx-5" style="width: 18rem;">
+                                    <img src="${dato.image}" class="card-img-top" alt="">
+                                    <div class="card-body">
+                                    <h5 class="card-title">${dato.name}</h5>
+                                    <p class="card-text">${dato.description}</p>
+                                    <a href="../details.html" class="btn btn-primary">detail</a>
+                                    </div>
+                                </div>`
+                                 
+                }
+                
+                contenedor.innerHTML = tarjetas
+                }
+
+
 
 function filtroDoble(){
     let arrayFiltrado1 = filtrarPorTexto(data.events, input.value)
