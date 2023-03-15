@@ -35,10 +35,24 @@ const input = document.getElementById('inputsearch')
 
 //eventos
 
-input.addEventListener('input',()=>{
-    let arrayFiltrado = filtrarPorTexto(data.events, input.value)
-    mostrarCard(arrayFiltrado,contenedorCard)
-})
+// input.addEventListener('input',()=>{
+//     let arrayFiltrado1 = filtrarPorTexto(data.events, input.value)
+//     let arrayFiltrado2 = filtrarPorCategoria(arrayFiltrado1)
+//     mostrarCard(arrayFiltrado2,contenedorCard)
+// })
+
+// contenedorCheckbox,addEventListener('change',() =>{
+//     let arrayFiltrado1 = filtrarPorTexto(data.events, input.value)
+//     let arrayFiltrado2 = filtrarPorCategoria(arrayFiltrado1)
+//     mostrarCard(arrayFiltrado2,contenedorCard)
+// })
+
+input.addEventListener('input',filtroDoble)
+
+contenedorCheckbox,addEventListener('change',filtroDoble)
+
+
+
 
 //llamadas de funciones
 
@@ -46,7 +60,13 @@ mostrarCard(data.events,contenedorCard)
 
 crearcheckbox(data.events)
 
-//funcione
+//funciones
+
+function filtroDoble(){
+    let arrayFiltrado1 = filtrarPorTexto(data.events, input.value)
+    let arrayFiltrado2 = filtrarPorCategoria(arrayFiltrado1)
+    mostrarCard(arrayFiltrado2,contenedorCard)
+}
 
 //search
 
@@ -64,16 +84,28 @@ function crearcheckbox (arrayDeDatos){
     let catergorias = new Set(categoriasrepetidas)
     catergorias.forEach(elemento => {
         checks +=`<div class=" form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio"
-                    value="option">
-                    <label class="form-check-label" for="inlineRadio">${elemento}</label>
+                    <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="${elemento}"
+                    value="${elemento}">
+                    <label class="form-check-label" for="${elemento}">${elemento}</label>
                 </div>`
     })
     contenedorCheckbox.innerHTML = checks
 } 
 
-/* <div class=" form-check form-check-inline">
-<input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio"
-    value="option">
-<label class="form-check-label" for="inlineRadio">papa</label>
-</div> */
+function filtrarPorCategoria(arrayDeDatos){
+    let cheackboxes = document.querySelectorAll("input[type='checkbox']")
+    console.log(cheackboxes);
+    let arrayChecks = Array.from(cheackboxes)
+    console.log(arrayChecks);
+    let checkchecked = arrayChecks.filter(check => check.checked)
+    console.log(checkchecked);
+    if(checkchecked.length == 0){
+        return arrayDeDatos
+    }
+    let checkvalue = checkchecked.map(check => check.value)
+    console.log(checkvalue);
+    let arrayFiltrado = arrayDeDatos.filter(elemento => checkvalue.includes(elemento.category))
+    console.log(arrayFiltrado)
+    return arrayFiltrado
+}
+
