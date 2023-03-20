@@ -4,6 +4,8 @@ const contenedorCard = document.getElementById("card");
 const input = document.getElementById("inputsearch");
 const contenedorCheckbox = document.getElementById("checkcontainer");
 
+
+
 //eventos
 
 input.addEventListener("input", filtroDoble);
