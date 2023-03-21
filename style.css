@@ -13,3 +13,7 @@ footer{
     width: 100px;
 }
 
+#cardDetails{
+    border-image: repeat;
+}
+

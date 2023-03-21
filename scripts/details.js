@@ -1,15 +1,4 @@
-// constante
 
-//ignorar
-
-
-// const querySearch = document.location.search
-
-// const id = new URLSearchParams (querySearch).get("id")
-// console.log(id)
-
-
-//funciona este
 
 const queryString = location.search;
 
@@ -38,11 +27,6 @@ console.log(tarjetasfiltrada)
 
 
 
-
-
-
-// const numero = Number(id);
-// console.log(numero);
 
 const tarjeta = tarjetasfiltrada.find(evento => evento._id == id);
 
