@@ -33,19 +33,22 @@ const tarjeta = tarjetasfiltrada.find(evento => evento._id == id);
 console.log(tarjeta);
 
 const containerCard = document.getElementById("cardDetails");
-containerCard.innerHTML = `<div class="row g-0 m-4">
-<div class="col-md-4 col-sm-12 d-flex pb-3 justify-content-center ">
-    <img src="${tarjeta.image}" alt="${tarjeta.name}">
-</div>
-<div class="col-md-6 col-sm-12 ms-md-5 card ">
-    <div class="card-body">
-        <h5 class="">${tarjeta.name}</h5>
-        <p class="card-text">${tarjeta.description}</p>
-        <p>Place: ${tarjeta.place}</p>
-        <p>Date: ${tarjeta.date}</p>
-        <p>Price: ${tarjeta.price}</p>
-
+containerCard.innerHTML = `
+<div class="card mb-3" style="max-width: 700px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="${tarjeta.image}" class="img-fluid rounded-start" alt="${tarjeta.name}">
     </div>
-</div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">${tarjeta.name}</h5>
+        <p class="card-text">${tarjeta.description}</p>
+        <p class="card-text" >Place: ${tarjeta.place}</p>
+        <p class="card-text" >Date: ${tarjeta.date}</p>
+        <p class="card-text" >Price: ${tarjeta.price}</p>
+        
+      </div>
+    </div>
+  </div>
 </div>
 `
