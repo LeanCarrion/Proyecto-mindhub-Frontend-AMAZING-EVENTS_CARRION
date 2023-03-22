@@ -1,6 +1,6 @@
 // constante
 
-const contenedorCard = document.getElementById("card");
+// const contenedorCard = document.getElementById("card");
 const input = document.getElementById("inputsearch");
 const contenedorCheckbox = document.getElementById("checkcontainer");
 
@@ -16,7 +16,7 @@ contenedorCheckbox, addEventListener("change", filtroDoble);
 
 // mostrarCard(data.events, contenedorCard);
 
-crearcheckbox(data.events);
+
 
 //funciones
 
@@ -45,9 +45,10 @@ crearcheckbox(data.events);
 // }
 
 function filtroDoble() {
-  let arrayFiltrado1 = filtrarPorTexto(data.events, input.value);
+  let arrayFiltrado1 = filtrarPorTexto(NewEvento, input.value);
   let arrayFiltrado2 = filtrarPorCategoria(arrayFiltrado1);
-  mostrarCard(arrayFiltrado2, contenedorCard);
+  mostrarCard(arrayFiltrado2);
+  // pintarCards(arrayFiltrado2)
 }
 
 //search
@@ -175,26 +176,35 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing')
   console.log(datos);
   NewEvento = datos.events
   console.log(NewEvento)
-  pintarCards(NewEvento)
+  // pintarCards(NewEvento)
+  mostrarCard(NewEvento)
+  crearcheckbox(NewEvento)
+  
 })
 .catch((error)=>console.log(error))
 
-function pintarCards(evento) { 
- const cards = evento.reduce((acc, act)=>  {
-  return acc + `
-  <div class="card m-3 mx-5" style="width: 15rem;">
-  <img src="${act.image}" class="card-img-top" alt="">
-  <div class="card-body">
-  <h5 class="card-title">${act.name}</h5>
-  <p class="card-text">${act.description}</p>
-  <div class="row">
-  <p class="col">$${act.price}</p>
-  <a href="../details.html?id=${act._id}" class="col btn btn-primary">details</a>
-  </div>
-  </div>
-  </div>`
-  },"")
 
+
+function mostrarCard(array) {
+  if (array.length == 0) {
+    contenedor.innerHTML = "<h2>No matches!</h2>";
+    return;
+  }
+  let tarjetas = "";
+  for (dato of array) {
+    tarjetas += `<div class="card m-3 mx-5" style="width: 15rem;">
+                                    <img src="${dato.image}" class="card-img-top" alt="">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${dato.name}</h5>
+                                        <p class="card-text">${dato.description}</p>
+                                        <div class="row">
+                                            <p class="col">$${dato.price}</p>
+                                            <a href="../details.html?id=${dato._id}" class="col btn btn-primary">details</a>
+                                        </div>
+                                    
+                                    </div>
+                    </div>`;
+  }
   const contenedor = document.getElementById('card')
-  contenedor.innerHTML = cards
+  contenedor.innerHTML = tarjetas;
 }
