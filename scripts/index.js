@@ -97,41 +97,104 @@ function filtrarPorCategoria(arrayDeDatos) {
 
 //try y catch
 
-let tarjetaApi;
-const obtenerCard = async () => {
-  try {
-    const respuesta = await fetch('https://mindhub-xj03.onrender.com/api/amazing ')
-    tarjetaApi = await respuesta.json();
-    console.log(tarjetaApi);
-    tarjeta1 = tarjetaApi.results
-    mostrarCard(tarjeta1, contenedorCard);
-}
-  catch(error){
-      console.log(error);
-      alert('Error')
-  }
-}
+// let tarjetaApi;
+// const obtenerCard = async () => {
+//   try {
+//     const respuesta = await fetch('https://mindhub-xj03.onrender.com/api/amazing')
+//     tarjetaApi = await respuesta.json();
+  
+//     tarjeta1 = tarjetaApi.results
+//     mostrarCard(tarjeta1, contenedorCard);
+// }
+//   catch(error){
+//       console.log(error);
+//       alert('Error')
+//   }
+// }
+// console.log(obtenerCard);
 
-function mostrarCard(array, contenedor) {
-  if (array.length == 0) {
-    contenedor.innerHTML = "<h2>No matches!</h2>";
-    return;
-  }
-  let tarjetas = "";
-  for (dato of array) {
-    tarjetas += `<div class="card m-3 mx-5" style="width: 15rem;">
-                                    <img src="${dato.image}" class="card-img-top" alt="">
-                                    <div class="card-body">
-                                        <h5 class="card-title">${dato.name}</h5>
-                                        <p class="card-text">${dato.description}</p>
-                                        <div class="row">
-                                            <p class="col">$${dato.price}</p>
-                                            <a href="../details.html?id=${dato._id}" class="col btn btn-primary">details</a>
-                                        </div>
-                                    
-                                    </div>
-                    </div>`;
-  }
+// function mostrarCard(array, contenedor) { 
+ 
+//   let tarjetas = "";
+//   for (dato of array) {
+//     tarjetas += `<div class="card m-3 mx-5" style="width: 15rem;">
+//                                         <img src="${tarjetas.image}" class="card-img-top" alt="">
+//                                        <div class="card-body">
+//                                           <h5 class="card-title">${tarjetas.name}</h5>
+//                                            <p class="card-text">${tarjetas.description}</p>
+//                                             <div class="row">
+//                                                 <p class="col">$${tarjetas.price}</p>
+//                                               <a href="../details.html?id=${tarjetas._id}" class="col btn btn-primary">details</a>
+//                                              </div>
+                                        
+//                                         </div>
+//                         </div>`;
+//   }
 
-  contenedor.innerHTML = tarjetas;
+//   contenedor.innerHTML = tarjetas;
+// }
+
+// no sirve
+// async function getTarjetas(){
+//   let url = 'tarjetas.json';
+//   try {
+//     let respuesta = await fetch('https://mindhub-xj03.onrender.com/api/amazing');
+//     return await respuesta.json();
+//   } catch (error){
+//     console.log(error)
+//   }
+// }
+
+// async function renderTarjetas(){
+//   let tarjetas = await getTarjetas();
+//   let html = '';
+//   tarjetas.forEach(tarjetas => {
+//     let htmlSegment =`<div class="card m-3 mx-5" style="width: 15rem;">
+//                                         <img src="${tarjetas.image}" class="card-img-top" alt="">
+//                                        <div class="card-body">
+//                                           <h5 class="card-title">${tarjetas.name}</h5>
+//                                            <p class="card-text">${tarjetas.description}</p>
+//                                             <div class="row">
+//                                                 <p class="col">$${tarjetas.price}</p>
+//                                               <a href="../details.html?id=${tarjetas._id}" class="col btn btn-primary">details</a>
+//                                              </div>
+                                        
+//                                         </div>
+//                         </div>`;
+//         html += htmlSegment;
+//   });
+//   let container = document.querySelector('.container')
+//   container.innerHTML = html;
+// }
+
+// renderTarjetas();
+let NewEvento 
+fetch('https://mindhub-xj03.onrender.com/api/amazing')
+.then((res)=>res.json())
+.then((datos)=>{
+  console.log(datos);
+  NewEvento = datos.events
+  console.log(NewEvento)
+  pintarCards(NewEvento)
+})
+.catch((error)=>console.log(error))
+
+function pintarCards(evento) { 
+ const cards = evento.reduce((acc, act)=>  {
+  return acc + `
+  <div class="card m-3 mx-5" style="width: 15rem;">
+  <img src="${act.image}" class="card-img-top" alt="">
+  <div class="card-body">
+  <h5 class="card-title">${act.name}</h5>
+  <p class="card-text">${act.description}</p>
+  <div class="row">
+  <p class="col">$${act.price}</p>
+  <a href="../details.html?id=${act._id}" class="col btn btn-primary">details</a>
+  </div>
+  </div>
+  </div>`
+  },"")
+
+  const contenedor = document.getElementById('card')
+  contenedor.innerHTML = cards
 }
