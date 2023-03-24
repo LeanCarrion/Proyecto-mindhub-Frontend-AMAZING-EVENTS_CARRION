@@ -192,7 +192,7 @@ function mostrarCard(array) {
   }
   let tarjetas = "";
   for (dato of array) {
-    tarjetas += `<div class="card m-3 mx-5" style="width: 15rem;">
+    tarjetas += `<div class="card m-3 mx-4 p-0" style="width: 15rem;">
                                     <img src="${dato.image}" class="card-img-top" alt="">
                                     <div class="card-body">
                                         <h5 class="card-title">${dato.name}</h5>

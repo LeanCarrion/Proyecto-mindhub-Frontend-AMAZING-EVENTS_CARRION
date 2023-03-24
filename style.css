@@ -16,4 +16,17 @@ footer{
 #cardDetails{
     width: 1000px;
 }
+/* .card{
+
+} */
+
+.card img{
+    min-height: 24vh;
+    margin-left: 0%;
+    box-sizing: border-box;
+    
+} 
+.card-text{
+    min-height: 14vh;
+}
 
