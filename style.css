@@ -15,16 +15,19 @@ footer{
 
 #cardDetails{
     width: 1000px;
+
 }
-/* .card{
 
-} */
+#cardDetails img{
+    height: 47vh;
+    
+}
 
-.card img{
+#card img{
     
     height: 150px;
 } 
-.card-text{
+#card .card-text{
     
     height: 100px;
 }

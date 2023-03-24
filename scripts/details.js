@@ -46,7 +46,7 @@ console.log(tarjeta);
 
 const containerCard = document.getElementById("cardDetails");
 containerCard.innerHTML = `
-<div class="card mb-3" style="max-width: 700px;">
+<div class="card mb-3 px-0  px-md-0" style="max-width: 1000px;">
   <div class="row g-0">
     <div class="col-md-4">
       <img src="${tarjeta.image}" class="img-fluid rounded-start" alt="${tarjeta.name}">
