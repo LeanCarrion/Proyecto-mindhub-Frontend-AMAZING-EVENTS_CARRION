@@ -21,12 +21,11 @@ footer{
 } */
 
 .card img{
-    min-height: 24vh;
-    margin-left: 0%;
-    box-sizing: border-box;
     
+    height: 150px;
 } 
 .card-text{
-    min-height: 14vh;
+    
+    height: 100px;
 }
 
