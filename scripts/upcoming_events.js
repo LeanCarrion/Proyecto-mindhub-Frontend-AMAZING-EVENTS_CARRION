@@ -25,7 +25,7 @@ function mostrarCard(array, contenedor) {
   }
   let tarjetas = "";
   for (dato of array) {
-    if (data.currentDate < dato.date) {
+    if (fecha < dato.date) {
       tarjetas += `<div class="card m-3 mx-5" style="width: 17rem;">
                           <img src="${dato.image}" class="card-img-top" alt="">
                           <div class="card-body">
@@ -102,6 +102,8 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing')
 .then((datos)=>{
   console.log(datos);
   NewEvento = datos.events
+  fecha = datos.currentDate
+  console.log(fecha);
   console.log(NewEvento)
   // pintarCards(NewEvento)
   mostrarCard(NewEvento,contenedorCard)
@@ -110,5 +112,6 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing')
   
 })
 .catch((error)=>console.log(error))
+
 
 

@@ -22,7 +22,7 @@ function mostrarCard(array, contenedor) {
   }
   let tarjetas = "";
   for (dato of array) {
-    if (data.currentDate > dato.date) {
+    if (fecha > dato.date) {
       tarjetas += `<div class="card m-3 mx-5" style="width: 17rem;">
                         <img src="${dato.image}" class="card-img-top" alt="">
                         <div class="card-body">
@@ -41,7 +41,7 @@ function mostrarCard(array, contenedor) {
   contenedor.innerHTML = tarjetas;
 }
 function filtroDoble() {
-  let arrayFiltrado1 = filtrarPorTexto(data.events, input.value);
+  let arrayFiltrado1 = filtrarPorTexto(NewEvento, input.value);
   let arrayFiltrado2 = filtrarPorCategoria(arrayFiltrado1);
   mostrarCard(arrayFiltrado2, contenedorCard);
 }
@@ -99,7 +99,9 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing')
   console.log(datos);
   NewEvento = datos.events
   console.log(NewEvento)
-  // pintarCards(NewEvento)
+  fecha = datos.currentDate
+  console.log(fecha);
+  
   mostrarCard(NewEvento,contenedorCard)
   crearcheckbox(NewEvento)
  
