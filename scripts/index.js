@@ -113,7 +113,15 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing')
   
 })
 .catch((error)=>console.log(error))
-
+fetch('amazing.json')
+.then((res)=>res.json())
+.then((datos)=>{
+    console.log(datos);
+    NewEvento = datos.events
+  console.log(NewEvento)
+  mostrarCard(NewEvento,contenedorCard)
+  crearcheckbox(NewEvento)
+})
 
 
 function mostrarCard(array,contenedor) {
