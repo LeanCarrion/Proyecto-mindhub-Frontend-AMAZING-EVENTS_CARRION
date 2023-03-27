@@ -10,8 +10,8 @@ input.addEventListener("input", filtroDoble);
 contenedorCheckbox, addEventListener("change", filtroDoble);
 
 //llamadas de funciones
-mostrarCard(data.events, contenedorCard);
-crearcheckbox(data.events);
+// mostrarCard(data.events, contenedorCard);
+// crearcheckbox(data.events);
 
 //funciones
 
@@ -89,3 +89,20 @@ function filtrarPorCategoria(arrayDeDatos) {
   console.log(arrayFiltrado);
   return arrayFiltrado;
 }
+
+//Nuevos datos
+// renderTarjetas();
+let NewEvento 
+fetch('https://mindhub-xj03.onrender.com/api/amazing')
+.then((res)=>res.json())
+.then((datos)=>{
+  console.log(datos);
+  NewEvento = datos.events
+  console.log(NewEvento)
+  // pintarCards(NewEvento)
+  mostrarCard(NewEvento,contenedorCard)
+  crearcheckbox(NewEvento)
+ 
+  
+})
+.catch((error)=>console.log(error))

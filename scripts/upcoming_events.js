@@ -14,9 +14,9 @@ contenedorCheckbox, addEventListener("change", filtroDoble);
 
 //llamadas de funciones
 
-mostrarCard(data.events, contenedorCard);
+// mostrarCard(data.events, contenedorCard);
 
-crearcheckbox(data.events);
+// crearcheckbox(data.events);
 
 //funciones
 
@@ -95,3 +95,47 @@ function filtrarPorCategoria(arrayDeDatos) {
   console.log(arrayFiltrado);
   return arrayFiltrado;
 }
+
+//Nuevos datos
+// renderTarjetas();
+let NewEvento 
+fetch('https://mindhub-xj03.onrender.com/api/amazing')
+.then((res)=>res.json())
+.then((datos)=>{
+  console.log(datos);
+  NewEvento = datos.events
+  console.log(NewEvento)
+  // pintarCards(NewEvento)
+  mostrarCard(NewEvento,contenedorCard)
+  crearcheckbox(NewEvento)
+ 
+  
+})
+.catch((error)=>console.log(error))
+
+
+
+// function mostrarCard(array) {
+//   if (array.length == 0) {
+//     contenedor.innerHTML = "<h2>No matches!</h2>";
+//     return;
+//   }
+//   let tarjetas = "";
+//   for (dato of array) {
+//     tarjetas += `<div class="card m-3 mx-5 p-0" style="width: 17rem;">
+//                                     <img src="${dato.image}" class="card-img-top" alt="">
+//                                     <div class="card-body">
+//                                         <h5 class="card-title">${dato.name}</h5>
+//                                         <p class="card-text">${dato.description}</p>
+//                                         <div class="row">
+//                                             <p class="col">$${dato.price}</p>
+//                                             <a href="../details.html?id=${dato._id}" class="col btn btn-primary">details</a>
+//                                         </div>
+                                    
+//                                     </div>
+//                     </div>`;
+//   }
+//   const contenedor = document.getElementById('card')
+//   contenedor.innerHTML = tarjetas;
+  
+//}

@@ -107,6 +107,7 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing')
   // pintarCards(NewEvento)
   mostrarCard(NewEvento)
   crearcheckbox(NewEvento)
+ 
   
 })
 .catch((error)=>console.log(error))
@@ -135,4 +136,5 @@ function mostrarCard(array) {
   }
   const contenedor = document.getElementById('card')
   contenedor.innerHTML = tarjetas;
+  
 }
