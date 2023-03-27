@@ -23,7 +23,7 @@ function mostrarCard(array, contenedor) {
   let tarjetas = "";
   for (dato of array) {
     if (data.currentDate > dato.date) {
-      tarjetas += `<div class="card m-3 mx-5" style="width: 15rem;">
+      tarjetas += `<div class="card m-3 mx-5" style="width: 17rem;">
                         <img src="${dato.image}" class="card-img-top" alt="">
                         <div class="card-body">
                             <h5 class="card-title">${dato.name}</h5>

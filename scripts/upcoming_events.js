@@ -1,11 +1,9 @@
 // constante
 const contenedorCard = document.getElementById("card");
-const contenedorCheckbox = document.getElementById("checkcontainer");
 const input = document.getElementById("inputsearch");
+const contenedorCheckbox = document.getElementById("checkcontainer");
 
 
-
-// filtros
 
 //eventos
 input.addEventListener("input", filtroDoble);
@@ -28,7 +26,7 @@ function mostrarCard(array, contenedor) {
   let tarjetas = "";
   for (dato of array) {
     if (data.currentDate < dato.date) {
-      tarjetas += `<div class="card m-3 mx-5" style="width: 15rem;">
+      tarjetas += `<div class="card m-3 mx-5" style="width: 17rem;">
                           <img src="${dato.image}" class="card-img-top" alt="">
                           <div class="card-body">
                               <h5 class="card-title">${dato.name}</h5>
@@ -47,7 +45,7 @@ function mostrarCard(array, contenedor) {
 }
 
 function filtroDoble() {
-  let arrayFiltrado1 = filtrarPorTexto(data.events, input.value);
+  let arrayFiltrado1 = filtrarPorTexto(NewEvento, input.value);
   let arrayFiltrado2 = filtrarPorCategoria(arrayFiltrado1);
   mostrarCard(arrayFiltrado2, contenedorCard);
 }
@@ -114,28 +112,3 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing')
 .catch((error)=>console.log(error))
 
 
-
-// function mostrarCard(array) {
-//   if (array.length == 0) {
-//     contenedor.innerHTML = "<h2>No matches!</h2>";
-//     return;
-//   }
-//   let tarjetas = "";
-//   for (dato of array) {
-//     tarjetas += `<div class="card m-3 mx-5 p-0" style="width: 17rem;">
-//                                     <img src="${dato.image}" class="card-img-top" alt="">
-//                                     <div class="card-body">
-//                                         <h5 class="card-title">${dato.name}</h5>
-//                                         <p class="card-text">${dato.description}</p>
-//                                         <div class="row">
-//                                             <p class="col">$${dato.price}</p>
-//                                             <a href="../details.html?id=${dato._id}" class="col btn btn-primary">details</a>
-//                                         </div>
-                                    
-//                                     </div>
-//                     </div>`;
-//   }
-//   const contenedor = document.getElementById('card')
-//   contenedor.innerHTML = tarjetas;
-  
-//}

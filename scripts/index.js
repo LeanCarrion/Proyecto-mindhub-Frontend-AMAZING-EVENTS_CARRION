@@ -1,6 +1,6 @@
 // constante
 
-// const contenedorCard = document.getElementById("card");
+const contenedorCard = document.getElementById("card");
 const input = document.getElementById("inputsearch");
 const contenedorCheckbox = document.getElementById("checkcontainer");
 
@@ -44,10 +44,13 @@ contenedorCheckbox, addEventListener("change", filtroDoble);
 //   contenedor.innerHTML = tarjetas;
 // }
 
+
+
+
 function filtroDoble() {
   let arrayFiltrado1 = filtrarPorTexto(NewEvento, input.value);
   let arrayFiltrado2 = filtrarPorCategoria(arrayFiltrado1);
-  mostrarCard(arrayFiltrado2);
+  mostrarCard(arrayFiltrado2,contenedorCard);
   // pintarCards(arrayFiltrado2)
 }
 
@@ -59,6 +62,7 @@ function filtrarPorTexto(arrayDeDatos, texto) {
   );
   return arrayFiltrado;
 }
+
 
 //cheackbox
 
@@ -104,17 +108,15 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing')
   console.log(datos);
   NewEvento = datos.events
   console.log(NewEvento)
-  // pintarCards(NewEvento)
-  mostrarCard(NewEvento)
+  mostrarCard(NewEvento,contenedorCard)
   crearcheckbox(NewEvento)
- 
   
 })
 .catch((error)=>console.log(error))
 
 
 
-function mostrarCard(array) {
+function mostrarCard(array,contenedor) {
   if (array.length == 0) {
     contenedor.innerHTML = "<h2>No matches!</h2>";
     return;
@@ -134,7 +136,6 @@ function mostrarCard(array) {
                                     </div>
                     </div>`;
   }
-  const contenedor = document.getElementById('card')
-  contenedor.innerHTML = tarjetas;
   
+  contenedor.innerHTML = tarjetas;
 }
