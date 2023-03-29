@@ -1,4 +1,5 @@
 
+//Funcion
 let tEventStat = document.getElementById("firstTable");
 
     function primeratabla(elemtento1, elemtento2,elemento3) {
@@ -24,10 +25,15 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing')
 .then((datos)=>{
   Evento = datos.events
   //   console.log(datos);
-  Evento.map((elemento) => { elemento.porcentage = ((elemento.assistance * 100)/elemento.capacity).toFixed(2);})
-  Evento.map((elemento) => { elemento.revenues = ((elemento.assistance * elemento.price).toFixed(2));})
+
+  // calculo de porcentaje de asistencia
+
+  // Evento.map((elemento) => { elemento.porcentage = ((elemento.assistance * 100)/elemento.capacity).toFixed(2);})
+  // Evento.map((elemento) => { elemento.revenues = ((elemento.assistance * elemento.price).toFixed(2));})
   
-  console.log(Evento)
+  // console.log(Evento)
+
+  // calculo y filtro de los porcentaje y ganancias
 
 let eventsUtiles = Evento.filter((elemento)=>(elemento.assistance))
   console.log(eventsUtiles)
@@ -38,6 +44,8 @@ let eventsUtiles = Evento.filter((elemento)=>(elemento.assistance))
 
 // console.log(Evento)
 console.log(eventsUtiles)
+
+//ordenamiento de los datos segun capacidad
   
 let eventsCapacity = eventsUtiles.sort(function (a, b) {
     if (a.capacity> b.capacity) {
@@ -52,7 +60,7 @@ let eventsCapacity = eventsUtiles.sort(function (a, b) {
   mostCapacity =eventsCapacity[eventsCapacity.length - 1]
   // console.log(mostCapacity)
   
-
+//ordenamiento de los datos segun porcentaje de asistencia
 
 let orden = eventsUtiles.sort(function (a, b) {
   if (a.porcentage> b.porcentage) {
@@ -64,6 +72,9 @@ let orden = eventsUtiles.sort(function (a, b) {
   
   return 0;
 });
+
+// seleccion de los mas y menos porcentajes de asistencia 
+
 let lowestPercentage = orden[0]
 // console.log(lowestPercentage)
 
@@ -71,14 +82,14 @@ let lowestPercentage = orden[0]
 let mostAftendances = orden[orden.length- 1]
 // console.log(mostAftendances)
 
-
+// llamado de funcion
 primeratabla(mostAftendances,lowestPercentage,mostCapacity);
 
 
 //tabla Upcoming events Statistics
 
 
-
+// Aca intente acumular por categoria
 
 let EventsForCategory = [];
     EventsForCategory.push(Evento.filter((event) => event.category === "Food"));
@@ -106,6 +117,9 @@ let EventsForCategory = [];
 
   
 })
+
+
+
 .catch((error)=>console.log(error))
 fetch('amazing.json')
 .then((res)=>res.json())
