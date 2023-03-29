@@ -33,7 +33,7 @@ function mostrarCard(array, contenedor) {
                               <p class="card-text">${dato.description}</p>
                               <div class="row">
                                   <p class="col">$${dato.price}</p>
-                                  <a href="../details.html?id=${dato._id}" class="col btn btn-primary">detail</a>
+                                  <a href="./details.html?id=${dato._id}" class="col btn btn-primary">detail</a>
                               </div>
       
                           </div>
