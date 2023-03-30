@@ -13,25 +13,17 @@ let tEventStat = document.getElementById("firstTable");
                 `;
     }
 
-
-
-  
-  
-
-
 let Evento 
 fetch('https://mindhub-xj03.onrender.com/api/amazing')
 .then((res)=>res.json())
 .then((datos)=>{
   Evento = datos.events
+  let fechaActual = datos.currentDate
+  console.log(fechaActual)
   //   console.log(datos);
 
-  // calculo de porcentaje de asistencia
 
-  // Evento.map((elemento) => { elemento.porcentage = ((elemento.assistance * 100)/elemento.capacity).toFixed(2);})
-  // Evento.map((elemento) => { elemento.revenues = ((elemento.assistance * elemento.price).toFixed(2));})
   
-  // console.log(Evento)
 
   // calculo y filtro de los porcentaje y ganancias
 
@@ -118,10 +110,11 @@ let EventsForCategory = [];
   
 })
 
+// a partir de aca ya no lo comento porque es repetir lo de arriba
 
 
-.catch((error)=>console.log(error))
-fetch('amazing.json')
+.catch((error)=> {
+  fetch('../amazing.json')
 .then((res)=>res.json())
 .then((datos)=>{
   Evento = datos.events
@@ -129,17 +122,15 @@ fetch('amazing.json')
     Evento.map((elemento) => { elemento.porcentage = ((elemento.assistance * 100)/elemento.capacity).toFixed(2);})
     Evento.map((elemento) => { elemento.revenues = ((elemento.assistance * elemento.price).toFixed(2));})
     
-    console.log(Evento)
+    //console.log(Evento)
   
   let eventsUtiles = Evento.filter((elemento)=>(elemento.assistance))
-    console.log(eventsUtiles)
+    //console.log(eventsUtiles)
     eventsUtiles.map((elemento) => { elemento.porcentage = ((elemento.assistance * 100)/elemento.capacity).toFixed(2);})
     eventsUtiles.map((elemento) => { elemento.revenues = ((elemento.assistance * elemento.price).toFixed(2));})
-    
-    
   
   // console.log(Evento)
-  console.log(eventsUtiles)
+  //console.log(eventsUtiles)
     
   let eventsCapacity = eventsUtiles.sort(function (a, b) {
       if (a.capacity> b.capacity) {
@@ -153,9 +144,7 @@ fetch('amazing.json')
     });
     mostCapacity =eventsCapacity[eventsCapacity.length - 1]
     // console.log(mostCapacity)
-    
-  
-  
+
   let orden = eventsUtiles.sort(function (a, b) {
     if (a.porcentage> b.porcentage) {
       return 1;
@@ -172,12 +161,9 @@ fetch('amazing.json')
   
   let mostAftendances = orden[orden.length- 1]
   // console.log(mostAftendances)
-  
-  
-  primeratabla(mostAftendances,lowestPercentage,mostCapacity);
-   
-  
 
-   
+  primeratabla(mostAftendances,lowestPercentage,mostCapacity);
+})
+
 })
 
